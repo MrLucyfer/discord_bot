@@ -1,0 +1,27 @@
+{
+  "name": "bertin8",
+  "version": "1.0.0",
+  "description": "Bot to write tweets from famous people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrLucyfer/bertin8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrLucyfer/bertin8/issues"
+  },
+  "homepage": "https://github.com/MrLucyfer/bertin8#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.1.0",
+    "node-fetch": "^2.6.0",
+    "now": "^16.2.0"
+  }
+}
