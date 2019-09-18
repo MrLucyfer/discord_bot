@@ -9,7 +9,7 @@ client.on('ready', () => {
   });
   
   client.on('message', async (msg) => {
-    if (msg.content === 'bertin') {
+    if (msg.content.toLower() === 'bertin') {
       let tweet = await getTweet();
       msg.reply(`Bertin ha twiteado: \n ${tweet.text} \n ${tweet.img}`);
     }
