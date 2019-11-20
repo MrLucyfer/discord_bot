@@ -36,19 +36,3 @@ const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
  });
 dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);  
   client.login(process.env.DISCORD_TOKEN);
-=======
-
-  client.on('message', async (msg) => {
-    console.log(msg.content);
-    if (msg.content === 'españa') {
-      console.log('in')
-      const img = new Discord.Attachment('./img/espanita.jpeg', 'espanita');
-      msg.reply('Españita', {files: img,});
-    }
-    
-  });
- 
-
-  
-  client.login(process.env.DISCORD_TOKEN);
->>>>>>> 04219a7e9ff0a66439ef2b1d1d810e56e2ca5b2c
