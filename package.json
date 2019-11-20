@@ -21,6 +21,8 @@
     "cheerio": "^1.0.0-rc.3",
     "discord.js": "^11.5.1",
     "dotenv": "^8.1.0",
-    "node-fetch": "^2.6.0"
+    "ffbinaries": "^1.1.4",
+    "node-fetch": "^2.6.0",
+    "node-opus": "^0.3.3"
   }
 }
