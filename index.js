@@ -12,7 +12,7 @@ client.on('ready', () => {
   });
   
   client.on('message', async (msg) => {
-    if (msg.content === 'bertin') {
+    if (msg.content.toLower() === 'bertin') {
       let tweet = await getTweet();
       msg.reply(`Bertin ha twiteado: \n ${tweet.text} \n ${tweet.img}`);
     } else if(msg.content.includes('programador')) {
@@ -20,7 +20,9 @@ client.on('ready', () => {
     } else if(msg.content.includes('-canta')) {
 	msg.channel.send('-play como un vagabundo');
     }
+    
   });
+<<<<<<< HEAD
 const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
  .on('end', () => {
   console.log('Music ended!');
@@ -34,3 +36,19 @@ const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
  });
 dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);  
   client.login(process.env.DISCORD_TOKEN);
+=======
+
+  client.on('message', async (msg) => {
+    console.log(msg.content);
+    if (msg.content === 'españa') {
+      console.log('in')
+      const img = new Discord.Attachment('./img/espanita.jpeg', 'espanita');
+      msg.reply('Españita', {files: img,});
+    }
+    
+  });
+ 
+
+  
+  client.login(process.env.DISCORD_TOKEN);
+>>>>>>> 04219a7e9ff0a66439ef2b1d1d810e56e2ca5b2c
