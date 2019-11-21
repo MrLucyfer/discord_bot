@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client()
 const getTweet = require('./scrap')
+const referendum = require('./poll.js')
 
 
 require('dotenv').config()
@@ -37,6 +38,8 @@ client.on('message', async (msg) => {
     } else {
       msg.reply('Unete a algun canal de voz');
     }
-}
+  } else if(msg.content.includes('!referendum')) {
+    referendum(msg);
+  }
 });
 client.login(process.env.DISCORD_TOKEN);
