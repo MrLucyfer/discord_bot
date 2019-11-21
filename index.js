@@ -37,10 +37,8 @@ client.on('message', async (msg) => {
     } else {
       msg.reply('Unete a algun canal de voz');
     }
-  } else if(msg.content.includes('-guapo')) {
-    msg.member.voiceChannel.leave();
-  }
-});
+}}
+);
 
 
 
