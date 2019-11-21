@@ -23,7 +23,7 @@ client.on('message', async (msg) => {
     if (msg.member.voiceChannel) {
       msg.member.voiceChannel.join()
         .then(connection => { // Connection is an instance of VoiceConnection
-          const dispatcher = connection.playFile('/Users/nfolquer/Desktop/Projects/bertin8/song.mp3');
+          const dispatcher = connection.playFile('/home/ubuntu/bot/song.mp3');
           dispatcher.on('error', e => {
             // Catch any errors that may arise
             console.log(e);
@@ -37,11 +37,6 @@ client.on('message', async (msg) => {
     } else {
       msg.reply('Unete a algun canal de voz');
     }
-}}
-);
-
-
-
-
-
+}
+});
 client.login(process.env.DISCORD_TOKEN);
