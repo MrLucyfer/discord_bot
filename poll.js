@@ -1,20 +1,23 @@
-function poll(qst) {
-    let question = qst.split(' ');
-    question.shift();
-    question = question.join(' ');
-    return question;
+let voted = [];
+
+function filter(reaction, user) {
+    if ((reaction.emoji.name === '👍' || reaction.emoji.name === '👎') && !voted.includes(user.id)) {
+        voted.push(user.id);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function referendum(msg) {
     let guildID = msg.guild.roles.find(role => role.name === 'Padres Fundadores').id;
-    if(msg.member.roles.has(guildID)) {
-        msg.channel.send('Comença el referendum: ');
-        let question = poll(msg.content);
-        msg.channel.send(question)
-            .then(async(pollMessage) => {
-                await pollMessage.react('👍🏽');
-                await pollMessage.react('👎🏽');
-            });
+    if (msg.member.roles.has(guildID)) {
+        msg.react('👍').then(() => msg.react('👎'));
+        voted = [];
+        const collector = msg.createReactionCollector(filter, { time: 30000 });
+        collector.on('end', collected => {
+            msg.channel.send(`Final de la votación! \nVotos totales: ${collected.size} \nResultado: 👍 - ${collected.get('👍').count}    👎 - ${collected.get('👎').count + 1}`)
+        });
     } else {
         msg.channel.send('Referendum no disponible');
     }
