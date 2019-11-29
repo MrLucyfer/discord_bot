@@ -1,17 +1,17 @@
 const getTweet = require('./commands/scrap.js');
+const kick = require('./commands/kick.js');
 
-
-async function bertinMsg() {
+async function bertinMsg(msg) {
     let tweet = await getTweet();
     msg.reply(`Bertin ha twiteado: \n ${tweet.text} \n ${tweet.img}`);
 }
 
-function soyProgramador() {
+function soyProgramador(msg) {
     let gif_programador = 'https://thumbs.gfycat.com/MildVigilantAntarcticgiantpetrel-size_restricted.gif'
     msg.reply(`Soy Programador: ${gif_programador}`);
 }
 
-function sing() {
+function sing(msg) {
     if (msg.member.voiceChannel) {
         msg.member.voiceChannel.join()
           .then(connection => { // Connection is an instance of VoiceConnection
@@ -35,5 +35,6 @@ function sing() {
 module.exports = {
     bertinMsg,
     sing,
-    soyProgramador
+    soyProgramador,
+    kick
 }
