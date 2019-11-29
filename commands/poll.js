@@ -31,7 +31,12 @@ function referendum(msg) {
     if (msg.member.roles.has(guildID)) {
         msg.react('👍').then(() => msg.react('👎'));
         voted = [];
+<<<<<<< HEAD:poll.js
         const collector = msg.createReactionCollector(filter, { time: 600000 });
+=======
+        const collector = msg.createReactionCollector(filter, { time: 60000 });
+        
+>>>>>>> 5b7d03e96cc10d7d3c50938e739e11fbaf24b3e2:commands/poll.js
         collector.on('end', collected => {
             let results = parseResults(collected);
             msg.channel.send(`@everyone Final de la votación! \nVotos totales: ${collected.size} \nResultado: 👍 -> ${results[0]}  ------  👎 -> ${results[1]}`)
