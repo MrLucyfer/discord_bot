@@ -31,7 +31,8 @@ function referendum(msg) {
     if (msg.member.roles.has(guildID)) {
         msg.react('👍').then(() => msg.react('👎'));
         voted = [];
-        const collector = msg.createReactionCollector(filter, { time: 1000 });
+        const collector = msg.createReactionCollector(filter, { time: 60000 });
+        
         collector.on('end', collected => {
             let results = parseResults(collected);
             msg.channel.send(`@everyone Final de la votación! \nVotos totales: ${collected.size} \nResultado: 👍 -> ${results[0]}  ------  👎 -> ${results[1]}`)
